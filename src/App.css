@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+
+.boxone {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.boxtwo {
+  flex-grow: 1;
+}
+
+.boxthree {
+  background-color: #dae5f5;
+  flex-grow: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7rem;
+}
+.logo_word {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.imageone {
+  width: 430px;
+  height: 230px;
+  background-image: url("./assets/Imageone.svg");
+  background-size: cover;
+  background-position: center;
+}
+.usedetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.usedetails_one {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 3.2rem;
+}
+.usedetails_two {
+  font-family: Roboto;
+  font-weight: 500;
+  color: #292929;
+  font-size: 1.1rem;
+}
+.ene {
+  position: relative;
+  bottom: -10rem;
+  color: #292929;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+.ene p {
+  font-family: Roboto;
+  font-weight: 400;
+}
+
+.lock {
+  width: 1rem;
+  height: 1.2rem;
+  background-image: url("./assets/Vector.svg");
+}
+
+.circle {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: #16008b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 38rem;
+  left: 14.5rem;
+  border: none;
+}
+.circle p {
+  font-family: Roboto;
+  color: white;
+  font-weight: 500;
+  font-size: 4.8rem;
+  cursor: pointer;
+}
