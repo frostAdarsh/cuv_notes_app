@@ -20,8 +20,22 @@ const Titleenter = ({ handleClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const existingGroups = JSON.parse(localStorage.getItem("groups")) || [];
+
+    const isDuplicate = existingGroups.some(
+      (group) => group.groupName.toLowerCase() === groupName.toLowerCase()
+    );
+
+    if (isDuplicate) {
+      alert("Group name must be unique. Please choose a different name.");
+      return;
+    }
+
     if (groupName && selectedColor) {
-      console.log({ groupName, selectedColor });
+      const newGroup = { groupName, selectedColor };
+      const updatedGroups = [...existingGroups, newGroup];
+
+      localStorage.setItem("groups", JSON.stringify(updatedGroups));
       handleClose();
     } else {
       alert("Please enter a group name and select a color.");
@@ -46,7 +60,7 @@ const Titleenter = ({ handleClose }) => {
           />
           <div className="color-options">
             <div>
-              <p className="text_choose_colour">Choose colour</p>
+              <p className="text_choose_colour">Choose Colour</p>
             </div>
             {colours.map((color, index) => (
               <li
@@ -59,12 +73,15 @@ const Titleenter = ({ handleClose }) => {
                   display: "inline-block",
                   margin: "0.3rem",
                   border: selectedColor === color ? "1px solid black" : "none",
+                  cursor: "pointer",
                 }}
                 onClick={() => setSelectedColor(color)}
               />
             ))}
           </div>
-          <button type="submit" className="create-btn">Create</button>
+          <button type="submit" className="create-btn">
+            Create
+          </button>
         </form>
       </div>
     </div>

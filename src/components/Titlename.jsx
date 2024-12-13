@@ -1,23 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Titleenter from "./Titleenter";
 
 const Titlename = () => {
   const [isPop, setIsPop] = useState(false);
+  const [groups, setGroups] = useState([]);
 
   const handleOpenPop = () => {
     setIsPop(true);
   };
+
   const handleClose = () => {
     setIsPop(false);
+    const storedGroups = JSON.parse(localStorage.getItem("groups")) || [];
+    setGroups(storedGroups);
   };
+
+  useEffect(() => {
+    const storedGroups = JSON.parse(localStorage.getItem("groups")) || [];
+    setGroups(storedGroups);
+  }, []);
+
   return (
     <div className="boxtwo">
       <div className="logo">
         <p className="logo_word">Pocket Notes</p>
       </div>
-      <button className="circle" onClick={handleOpenPop}>
-        <p>+</p>
-      </button>
+      <div className="namebox">
+        <div>
+          {groups.map((group, index) => (
+            <div key={index} className="nameboxone">
+              <div
+                style={{
+                  width: "3.5rem",
+                  height: "3.5rem",
+                  backgroundColor: group.selectedColor,
+                }}
+                className="nameboxtwo"
+              >
+                {group.groupName.slice(0, 2).toUpperCase()}
+              </div>
+              <span className="text_group_name">{group.groupName}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="upper">
+        <button className="circle" onClick={handleOpenPop}>
+          <p>+</p>
+        </button>
+      </div>
       {isPop && <Titleenter handleClose={handleClose} />}
     </div>
   );

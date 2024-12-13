@@ -85,10 +85,14 @@
   justify-content: center;
   align-items: center;
   position: sticky;
-  top: 38rem;
-  left: 14.5rem;
   border: none;
   outline: none;
+  z-index: 1;
+}
+.upper {
+  position: fixed;
+  bottom: 2rem;
+  left: 15rem;
 }
 .circle p {
   font-family: Roboto;
@@ -175,4 +179,38 @@
   font-weight: 400;
   float: right;
   cursor: pointer;
+}
+.namebox {
+  overflow: auto;
+  max-height: 37rem;
+}
+
+.nameboxone {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+}
+.nameboxone:hover {
+  background-color: #2f2f2f2b;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.text_group_name {
+  display: inline-block;
+  font-family: Roboto;
+  font-weight: 500;
+  margin-left: 1.8rem;
+  font-size: 1.3rem;
+}
+
+.nameboxtwo {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
