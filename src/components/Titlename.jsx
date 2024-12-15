@@ -4,6 +4,7 @@ import Titleenter from "./Titleenter";
 const Titlename = () => {
   const [isPop, setIsPop] = useState(false);
   const [groups, setGroups] = useState([]);
+  const [truevalue, setTrueVlaue] = useState(false);
 
   const handleOpenPop = () => {
     setIsPop(true);
@@ -19,13 +20,18 @@ const Titlename = () => {
     const storedGroups = JSON.parse(localStorage.getItem("groups")) || [];
     setGroups(storedGroups);
   }, []);
+  const handleNote = (e) => {
+    if (e.target.classList.contains("nameboxone") || e.target.classList.contains("text_group_name") ) {
+      setTrueVlaue(true);
+    }
+  };
 
   return (
     <div className="boxtwo">
       <div className="logo">
         <p className="logo_word">Pocket Notes</p>
       </div>
-      <div className="namebox">
+      <div className="namebox" onClick={handleNote}>
         <div>
           {groups.map((group, index) => (
             <div key={index} className="nameboxone">
